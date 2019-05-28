@@ -43,6 +43,15 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
+  it('should add a title for the app', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    const de = fixture.debugElement;
+    const ne: HTMLElement = de.nativeElement;
+
+    const title: HTMLHeadingElement = ne.querySelector('#title');
+    expect(title.textContent).toBe("Invoice Calculator");
+  });
+
   it('should disable add button if description of price are empty', () => {
     const fixture = TestBed.createComponent(AppComponent);
     const de = fixture.debugElement;

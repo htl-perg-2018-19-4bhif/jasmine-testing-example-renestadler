@@ -32,4 +32,12 @@ describe('InvoiceCalculatorService', () => {
     expect(result.invoiceLines[0].priceExclusiveVat).toBe(6 / dummyVatFactor);
     expect(result.invoiceLines[1].priceExclusiveVat).toBe(3 / dummyVatFactor);
   });
+
+  it('should return null for a not usable input', () => {
+    const service = new InvoiceCalculatorService(null);
+
+    expect(service.CalculateInvoice(null)).toBe(null);
+    expect(service.CalculateInvoice(undefined)).toBe(null);
+    expect(service.CalculateInvoice([])).toBe(null);
+  })
 });

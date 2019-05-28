@@ -13,7 +13,10 @@ export class VatCategoriesService {
   constructor() { }
 
   public getVat(category: VatCategory): number {
-    // REPLACE the next line with the necessary code
-    return NaN;
+    switch(category){
+      case VatCategory.Drinks:return 10;
+      case VatCategory.Food:return 20;
+      default: return NaN;
+    }
   }
 }
